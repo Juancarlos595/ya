@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cuadro{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cuadro"></div>
+
+    <br><br><br><br><br>
+
+    <input type="button" value="izq" onclick="mueve(this)">
+    <input type="button" value="derecha" onclick="mueve(this)">
+    <input type="button" value="abajo" onclick="mueve(this)">
+    <input type="button" value="arriba" onclick="mueve(this)">
+
+    <script>
+        // Declarar las variables globales fuera de la función onload
+        var cuadro = document.getElementById("cuadro");
+        var x = 300;
+        var y = 100;
+
+        // Función que se ejecuta cuando la página ha cargado
+        window.onload = function() {
+            cuadro.style.left = x + "px";
+            cuadro.style.top = y + "px";
+        };
+
+        // Función para mover el cuadro
+        function mueve(obj) {
+            if (obj.value == "izq") {
+                x -= 10;  // Mueve hacia la izquierda
+            }
+            if (obj.value == "derecha") {
+                x += 10;  // Mueve hacia la derecha
+            }
+            if (obj.value == "arriba") {
+                y -= 10;  // Mueve hacia arriba
+            }
+            if (obj.value == "abajo") {
+                y += 10;  // Mueve hacia abajo
+            }
+
+            // Actualizar la posición del cuadro
+            cuadro.style.left = x + "px";
+            cuadro.style.top = y + "px";
+        }
+    </script>
+
+</body>
+</html>
